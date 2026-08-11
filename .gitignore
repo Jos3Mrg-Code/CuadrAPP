@@ -37,6 +37,10 @@ yarn-error.*
 # Vercel
 .vercel/
 
+# Supabase CLI: estado local del proyecto enlazado.
+# pooler-url contiene la credencial de la base de datos.
+supabase/.temp/
+
 # typescript
 *.tsbuildinfo
 
