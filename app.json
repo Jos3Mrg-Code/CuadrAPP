@@ -1,7 +1,8 @@
 {
   "expo": {
-    "name": "finanzapp",
-    "slug": "finanzapp",
+    "name": "Cuadrapp",
+    "slug": "cuadrapp",
+    "scheme": "cuadrapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -10,6 +11,7 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.cuadrapp.finanzapp",
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/android-icon-foreground.png",
@@ -20,6 +22,26 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-secure-store",
+      "expo-font",
+      "expo-status-bar",
+      "expo-router",
+      "expo-web-browser",
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/icon.png",
+          "color": "#6366F1"
+        }
+      ]
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "03d17cfa-55b7-4b48-8f34-94dbe790a63a"
+      }
     }
   }
 }
