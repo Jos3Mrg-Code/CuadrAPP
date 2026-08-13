@@ -1,5 +1,6 @@
 import { Tabs } from 'expo-router'
 import { Text } from 'react-native'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 const icons: Record<string, string> = {
   index: '🏠',
@@ -20,11 +21,20 @@ const labels: Record<string, string> = {
 }
 
 export default function TabsLayout() {
+  // En iPhone la barra debe crecer hacia el indicador de inicio: si no, queda
+  // una franja muerta debajo y las etiquetas se pegan al borde.
+  const insets = useSafeAreaInsets()
+
   return (
     <Tabs
       screenOptions={({ route }) => ({
         headerShown: false,
-        tabBarStyle: { backgroundColor: '#1E293B', borderTopColor: '#334155', height: 60 },
+        tabBarStyle: {
+          backgroundColor: '#1E293B',
+          borderTopColor: '#334155',
+          height: 60 + insets.bottom,
+          paddingBottom: insets.bottom,
+        },
         tabBarActiveTintColor: '#6366F1',
         tabBarInactiveTintColor: '#64748B',
         tabBarLabel: ({ color }) => (
